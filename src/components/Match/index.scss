@@ -1,0 +1,61 @@
+.match-row-wrapper,
+.match-row-home-team,
+.match-row-away-team {
+  display: flex;
+  align-items: center;
+}
+
+.match-row-wrapper {
+  justify-content: space-between;
+  background-color: white;
+  padding: 5px;
+
+  &:not(:last-child) {
+    margin-bottom: 1px;
+  }
+
+  .match-row-home-team,
+  .match-row-away-team {
+    flex: 1 1 40%
+  }
+
+  .match-row-team-name {
+    flex-basis: 50px;
+    padding: 0 5px;
+    display: flex;
+  }
+  .match-row-home-team {
+    .match-row-team-name {
+      justify-content: flex-end;
+    }
+  }
+
+  .match-row-away-team {
+    justify-content: flex-end;
+  }
+
+  .match-row-score-table {
+    flex: 1 1 auto;
+    text-align: center;
+    background: #007db1;
+    color: white;
+    padding: 5px 0;
+
+    .scored {
+      display: inline-block;
+      animation: scored .5s ease-out;
+    }
+  }
+
+  @keyframes scored {
+    0% {
+      transform: scale(1)
+    }
+    100% {
+      transform: scale(1.5);
+      color: red;
+    }
+  }
+  
+
+}

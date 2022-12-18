@@ -1,0 +1,32 @@
+$scrollbarWidth: 4px;
+
+.score-board-container {
+  background-color: #727272;
+  padding: 10px;
+  width: 400px;
+  height: auto;
+  max-height: 70vh;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: $scrollbarWidth !important;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      border-radius: $scrollbarWidth / 2;
+      background: inherit;
+  }
+
+  &::-webkit-scrollbar-track {
+      background: inherit;
+  }
+
+  &:hover {
+      &::-webkit-scrollbar-thumb {
+          background: #edecf0;
+      }
+  }
+
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}

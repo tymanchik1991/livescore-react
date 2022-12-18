@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+
+  .app-container-info {
+    text-align: center;
+    color: white;
+  }
+}
