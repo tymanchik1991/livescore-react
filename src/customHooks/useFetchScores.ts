@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
 
 import { getScores } from '../services/scoresApi'
+
+import { ScoreType } from '../interfaces/scores'
+
 import config from '../config'
 
-export function useFetchScores(isPolling) {
-  const [scores, setScores] = useState()
+export function useFetchScores(isPolling: boolean) {
+  const [scores, setScores] = useState<ScoreType>()
 
   useEffect(() => {
     let isIgnor = false
-    let intervalId
+    let intervalId: NodeJS.Timer
     const fetchScores = async () => {
       const response = await getScores()
       if (response && !isIgnor) {

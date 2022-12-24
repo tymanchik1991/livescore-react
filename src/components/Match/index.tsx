@@ -1,17 +1,23 @@
 import { memo } from 'react'
-import PropTypes from 'prop-types'
 
-import { TeamType } from '../../helpers/prop-types'
+import { FormatedTeamType } from '../../interfaces/scores'
 
 import './index.scss'
+
+interface MatchProps {
+  homeTeam: FormatedTeamType,
+  awayTeam: FormatedTeamType,
+  homeTeamScore: number,
+  awayTeamScore: number,
+}
 
 function Match({
   homeTeam,
   awayTeam,
   homeTeamScore,
   awayTeamScore,
-}) {
-  function resolveClassName(score) {
+}: MatchProps) {
+  function resolveClassName(score: number) {
     return !!score ? 'scored' : ''
   }
 
@@ -41,17 +47,5 @@ function Match({
 }
 
 const MemoMatch = memo(Match)
-
-const MatchTeamType = {
-  ...TeamType,
-  img: PropTypes.string,
-}
-
-MemoMatch.propTypes = {
-  homeTeam: PropTypes.shape(MatchTeamType),
-  awayTeam: PropTypes.shape(MatchTeamType),
-  homeTeamScore: PropTypes.number,
-  awayTeamScore: PropTypes.number,
-}
 
 export default MemoMatch

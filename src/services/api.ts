@@ -1,4 +1,4 @@
-export async function request(url, options) {
+export async function request<T>(url: string, options?: RequestInit): Promise<T | undefined> {
   try {
     const response = await fetch(url, options)
     if (!response.ok) {

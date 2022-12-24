@@ -1,23 +1,25 @@
 import { useMemo } from 'react'
-import PropTypes from 'prop-types'
 
 import Match from '../Match'
 
 import { calculateScores, formatTeamsData } from '../../helpers/utils'
-import {
-  EventType,
-  MatchType,
-  TeamType,
-} from '../../helpers/prop-types'
+
+import { EventType, MatchType, TeamType, TeamScoreType } from '../../interfaces/scores'
 
 import './index.scss'
+
+interface ScoreDashboardProps {
+  matches: MatchType[],
+  teams: TeamType[],
+  events: EventType[],
+}
 
 function ScoreDashboard({
   matches,
   teams,
   events,
-}) {
-  let teamsScore = {}
+}: ScoreDashboardProps) {
+  let teamsScore: TeamScoreType = {}
   const formatedTeamsData = useMemo(() => {
     return formatTeamsData(teams)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,12 +48,6 @@ function ScoreDashboard({
       </div>
     </div>
   )
-}
-
-ScoreDashboard.propTypes = {
-  matches: PropTypes.arrayOf(PropTypes.shape(MatchType)),
-  teams: PropTypes.arrayOf(PropTypes.shape(TeamType)),
-  events: PropTypes.arrayOf(PropTypes.shape(EventType)),
 }
 
 export default ScoreDashboard
