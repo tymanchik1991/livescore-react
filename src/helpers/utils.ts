@@ -43,7 +43,7 @@ export function calculateScores(events: EventType[], matches: MatchType[]): Team
       if (match) {
         const scoredTeamId = match[teamIdField]
         const prevScoreAmount = acc[scoredTeamId] || 0
-        const newScoreAmount = event.score_amount
+        const newScoreAmount = event.score_amount || 0
         acc[scoredTeamId] = prevScoreAmount + newScoreAmount
       }
     }

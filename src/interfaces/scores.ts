@@ -10,9 +10,9 @@ export type EventType = {
   match_id: number,
   event_id: number,
   event_time: number,
-  event_type?: 'goal',
+  event_type: 'goal' | 'match_start',
   score_team?: 'home' | 'away',
-  score_amount: number,
+  score_amount?: number,
 }
 
 export type TeamType = {

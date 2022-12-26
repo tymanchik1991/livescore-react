@@ -13,7 +13,7 @@ $scrollbarWidth: 4px;
   }
 
   &::-webkit-scrollbar-thumb {
-      border-radius: $scrollbarWidth / 2;
+      border-radius: calc($scrollbarWidth / 2);
       background: inherit;
   }
 
